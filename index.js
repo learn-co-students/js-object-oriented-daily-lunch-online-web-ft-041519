@@ -30,7 +30,13 @@ class Neighborhood {
         let mealArray = this.customers().map(customer => {
             return customer.meals()
         });
+
+        console.log(merged)
+
         let uniqueMeals = Array.from(...new Set(mealArray))
+        
+        console.log(uniqueMeals)
+
         return uniqueMeals
     };
 };
@@ -84,7 +90,7 @@ class Meal {
 
 
     static byPrice() {
-        console.log(store.meals.sort((a, b) => a.price - b.price))
+        return (store.meals.sort((a, b) => b.price - a.price))
       }
 
 };
