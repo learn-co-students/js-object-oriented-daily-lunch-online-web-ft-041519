@@ -39,12 +39,12 @@ class Meal {
     }
 
     customers(){
-        const allCustomers = store.customers.map(customer => customer.meal())
+        const allCustomers = store.deliveries.map(delivery => delivery.customer())
         return [...new Set(allCustomers)]
     }
 
     static byPrice() {
-        return store.meals.sort((a, b) => a.price < b.price)
+        return store.meals.sort((a, b) => {return b.price - a.price})
     }
 }
 
@@ -70,7 +70,7 @@ class Customer {
 }
 
 class Delivery {
-    constructor(mealId, customerId, neighborhoodId){
+    constructor(mealId, neighborhoodId, customerId){
         this.mealId = mealId
         this.customerId = customerId
         this.neighborhoodId = neighborhoodId
