@@ -27,18 +27,10 @@ class Neighborhood {
     };
 
     meals() {
-        let mealArray = this.customers().map(customer => {
-            return customer.meals()
-        });
-
-        console.log(merged)
-
-        let uniqueMeals = Array.from(...new Set(mealArray))
-        
-        console.log(uniqueMeals)
-
-        return uniqueMeals
-    };
+      const allMeals = this.customers().map(customer => customer.meals());
+      const merged = [].concat.apply([], allMeals);
+      console.log([...new Set(merged)]);
+    }
 };
 
 class Customer {
