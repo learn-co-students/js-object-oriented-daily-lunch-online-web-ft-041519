@@ -27,9 +27,8 @@ class Neighborhood {
     };
 
     meals() {
-      const allMeals = this.customers().map(customer => customer.meals());
-      const merged = [].concat.apply([], allMeals);
-      console.log([...new Set(merged)]);
+      const allMeals = this.deliveries().map(delivery => delivery.meal());
+      return [...new Set(allMeals)];
     }
 };
 
